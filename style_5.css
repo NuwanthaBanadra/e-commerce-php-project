@@ -1,0 +1,51 @@
+.body {
+  max-width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #ebebeb;
+}
+
+@keyframes moveBg {
+  from {
+    background-position: 0 50%;
+  }
+
+  to {
+    background-position: -1134px 50%;
+  }
+}
+
+.carousel {
+  --contrast: 105%;
+  --speed: 13s;
+  height: 70px;
+  max-width: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.carousel .mask {
+  position: absolute;
+  inset: 0;
+  background: #0000;
+  backdrop-filter: blur(var(--blur)) contrast(var(--contrast));
+  -webkit-backdrop-filter: blur(var(--blur)) contrast(var(--contrast));
+  pointer-events: none;
+}
+
+.carousel .logos {
+  animation: moveBg var(--speed) linear infinite;
+  position: absolute;
+  inset: 0;
+  background: url(brands2.webp) 0 50% / 567px 75px repeat-x;
+}
+
+.carousel:nth-of-type(2) {
+  --contrast: 125%;
+}
+
+.carousel:nth-of-type(2) .logos {
+  background: url(brands2.webp) 0 50% / 1134px 150px repeat-x;
+}
